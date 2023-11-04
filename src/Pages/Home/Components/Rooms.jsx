@@ -15,7 +15,7 @@ const Rooms = () => {
         <img className="rounded-lg" src={room3} alt="" />
         <img className="rounded-lg" src={room4} alt="" />
       </div>
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center">
         <button className="btn btn-neutral">Book Now</button>
       </div>
     </div>
