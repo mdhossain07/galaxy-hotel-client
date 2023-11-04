@@ -4,20 +4,30 @@ const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <NavLink>Home</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? `bg-[#AA8453]` : "")}
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink>Rooms</NavLink>
+        <NavLink
+          to="/rooms"
+          className={({ isActive }) => (isActive ? `bg-[#AA8453]` : "")}
+        >
+          Rooms
+        </NavLink>
       </li>
     </>
   );
   return (
-    <div>
+    <div className="">
       <div className="drawer">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* Navbar */}
-          <div className="w-full navbar bg-base-300">
+          <div className="w-full navbar bg-transparent container mx-auto px-8 md:px-16 lg:px-24">
             <div className="flex-none lg:hidden">
               <label
                 htmlFor="my-drawer-3"
@@ -46,9 +56,15 @@ const Navbar = () => {
                 {navItems}
               </ul>
             </div>
+            <div className="navbar-end">
+              <NavLink className="btn">Login</NavLink>
+            </div>
           </div>
+
           {/* Page content here */}
-          <Outlet />
+          <div className="container mx-auto px-8 md:px-16 lg:px-24">
+            <Outlet />
+          </div>
         </div>
         <div className="drawer-side">
           <label
@@ -58,12 +74,7 @@ const Navbar = () => {
           ></label>
           <ul className=" p-4 w-80 min-h-full bg-base-200">
             {/* Sidebar content here */}
-            <li>
-              <NavLink>Home</NavLink>
-            </li>
-            <li>
-              <NavLink>Rooms</NavLink>
-            </li>
+            {navItems}
           </ul>
         </div>
       </div>
