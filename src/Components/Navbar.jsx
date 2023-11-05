@@ -32,6 +32,18 @@ const Navbar = () => {
           Rooms
         </NavLink>
       </li>
+      <li>
+        {user ? (
+          <NavLink
+            to="/my-rooms"
+            className={({ isActive }) => (isActive ? `bg-[#AA8453]` : "")}
+          >
+            My Rooms
+          </NavLink>
+        ) : (
+          ""
+        )}
+      </li>
     </>
   );
   return (
