@@ -1,6 +1,19 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire("Success!", "Logged out successfully!", "success");
+      })
+      .catch((err) => {
+        Swal.fire("Failed", err.message, "error");
+      });
+  };
   const navItems = (
     <>
       <li>
@@ -56,9 +69,43 @@ const Navbar = () => {
                 {navItems}
               </ul>
             </div>
-            <div className="navbar-end">
-              <NavLink className="btn">Login</NavLink>
-            </div>
+            {user ? (
+              <div className="navbar-end">
+                <div className="dropdown dropdown-end">
+                  <label
+                    tabIndex={0}
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div className="w-10 rounded-full">
+                      <img referrerPolicy="no-referrer" src={user.photoURL} />
+                    </div>
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="
+                    z-[1] shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <a>{user.displayName}</a>
+                    </li>
+                    <button onClick={handleLogOut}>
+                      <li>
+                        <a>Logout</a>
+                      </li>
+                    </button>
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <div className="navbar-end">
+                <Link
+                  to="/login"
+                  className="btn border-none bg-[#DD3333] text-white"
+                >
+                  Login
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Page content here */}

@@ -123,7 +123,6 @@ const Testimonials = () => {
           </figure>
         </SwiperSlide>
       </Swiper>
-      <h2>Hello</h2>
     </>
   );
 };
