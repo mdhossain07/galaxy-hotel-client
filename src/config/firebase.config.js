@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAOnD5EgYl49QI_Xw05qjkk__vkdUhzEdc",
-  authDomain: "galaxy-hotel-e2efd.firebaseapp.com",
-  projectId: "galaxy-hotel-e2efd",
-  storageBucket: "galaxy-hotel-e2efd.appspot.com",
-  messagingSenderId: "271325571831",
-  appId: "1:271325571831:web:19e216ecc52906e91181f2",
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 const app = initializeApp(firebaseConfig);
