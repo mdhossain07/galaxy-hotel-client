@@ -7,21 +7,30 @@ import star from "../../assets/icons/star_1_.png";
 const Rooms = () => {
   const { loading } = useAuth();
   const [rooms, setRooms] = useState([]);
+  const [isSorted, setIsSorted] = useState(1);
 
   useEffect(() => {
-    axios("http://localhost:5001/rooms").then((data) => setRooms(data.data));
-  }, []);
+    axios(`http://localhost:5001/rooms?sort=${isSorted}`).then((data) =>
+      setRooms(data.data)
+    );
+  }, [isSorted]);
 
   const handleFilter = () => {
-    console.log("clicked....");
+    setIsSorted(isSorted === 1 ? -1 : 1);
   };
 
   return (
     <div>
       <div>
-        <button onClick={handleFilter} className="btn btn-accent">
-          Filter
-        </button>
+        {isSorted === 1 ? (
+          <button onClick={handleFilter} className="btn btn-accent">
+            Filter By Highest
+          </button>
+        ) : (
+          <button onClick={handleFilter} className="btn btn-accent">
+            Filter By Lowest
+          </button>
+        )}
       </div>
       {loading ? (
         <span className="loading loading-infinity loading-lg"></span>
