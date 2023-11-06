@@ -1,8 +1,9 @@
-/* eslint-disable react/prop-types */
 import useAuth from "../../hooks/useAuth";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import star from "../../assets/icons/star_1_.png";
+import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Rooms = () => {
   const { loading } = useAuth();
@@ -46,21 +47,23 @@ const Rooms = () => {
 };
 
 const RoomsCard = ({ room }) => {
-  const { name, description, img, price, rating } = room;
+  const { name, description, img, price, rating, available, _id } = room;
   return (
     <div>
       <div className="flex gap-5 mt-10 items-center">
-        <div>
+        <NavLink to={`/room/${_id}`}>
           <img className="w-[270px] h-[188px] rounded-lg " src={img} alt="" />
-        </div>
+        </NavLink>
         <div className="space-y-2">
           <h2 className="text-2xl font-semibold">{name}</h2>
           <p>{description.slice(0, 80)}...</p>
+          <p className="font-medium">Rooms Available: {available}</p>
           <div className="flex items-center gap-5">
             <div className="flex gap-1 last:items-center">
               <span>
                 <img src={star} alt="" />
               </span>
+
               <p className="font-medium text-sm">{rating} (20) </p>
             </div>
 
@@ -69,10 +72,14 @@ const RoomsCard = ({ room }) => {
               <span className="text-sm">/night</span>
             </p>
           </div>
-          <button className="btn btn-neutral">Book Now</button>
         </div>
       </div>
     </div>
   );
 };
+
+RoomsCard.propTypes = {
+  room: PropTypes.object,
+};
+
 export default Rooms;

@@ -4,21 +4,30 @@
         "img": "https://i.ibb.co/stMswMJ/Rectangle-27.png",
         "description": "The Junior Suite is a stylish and generously sized room that provides a separate living area and bedroom. It often includes a king-sized bed, a comfortable seating area, and an en-suite bathroom with upscale fixtures. Junior Suites offer more space and privacy compared to standard rooms, making them ideal for both business and leisure travelers. These suites may also come with added amenities such as a work desk, a mini-kitchen, and access to exclusive hotel facilities.",
         "price": "150",
-        "rating": "5"
+        "rating": "5",
+        "available": "3",
+        "special-offers":"N/A",
+        "size": "small"
     },
     {
         "name": "Family Room",
         "img": "https://i.ibb.co/sPzLyfH/room-2.jpg",
         "description": "The Family Room is designed to accommodate families or groups traveling together. It offers a combination of comfort and practicality, typically including a mix of bedding options like a king-sized bed for the adults and twin beds or bunk beds for the children. These rooms provide enough space for everyone to enjoy a comfortable stay. Family Rooms often come with a private bathroom, a flat-screen TV, and other family-friendly amenities. Some hotels may also provide play areas, children's activities, and cribs or rollaway beds upon request to ensure a convenient and enjoyable stay for the entire family.",
         "price": "200",
-        "rating": "4.5"
+        "rating": "4.5",
+        "available": "2",
+        "special-offers":"30%",
+        "size": "medium"
     },
     {
         "name": "Double Room",
         "img": "https://i.ibb.co/RYpnLZQ/room-4.png",
         "description": "The Double Room is a comfortable and well-appointed accommodation designed for couples or friends traveling together. It typically features two double or queen-sized beds and a private bathroom. Double rooms are ideal for those seeking a cozy and budget-friendly option without sacrificing comfort. They may also include modern amenities like a flat-screen TV, a mini-fridge, and complimentary Wi-Fi for a pleasant stay.",
         "price": "250",
-        "rating": "4.5"
+        "rating": "4.5",
+        "available": "1",
+        "special-offers":"N/A",
+        "size": "medium"
     },
 
     {
@@ -26,21 +35,30 @@
         "img": "https://i.ibb.co/WPzM8p1/room-6.jpg",
         "description": "The Deluxe Room is a well-appointed and comfortable choice for travelers seeking a step up from standard accommodations. It typically features a spacious and tastefully decorated room with either a king-sized bed or two queen-sized beds. The room comes with modern amenities, including a private bathroom with high-quality toiletries, a flat-screen TV, a mini-fridge, and complimentary Wi-Fi. Guests can expect a relaxing atmosphere and often enjoy additional conveniences such as a work desk, a sitting area, and beautiful views, making the Deluxe Room a perfect choice for a pleasant stay.",
         "price": "300",
-        "rating": "5"
+        "rating": "5",
+        "available": "2",
+        "special-offers":"20%",
+        "size": "large"
     },
     {
         "name": "Master Room",
         "img": "https://i.ibb.co/DYY7Wzk/Rectangle-26.png",
         "description": "The Master Room is a luxurious and spacious accommodation that offers a blend of comfort and elegance. This room typically includes a king-sized bed or two queen-sized beds, a well-appointed bathroom with premium toiletries, and a separate seating area. Guests staying in a Master Room can enjoy additional amenities like a coffee maker, a minibar, and access to a private lounge or dedicated concierge services. It's a perfect choice for those seeking a touch of sophistication during their stay.",
         "price": "250",
-        "rating": "5"
+        "rating": "5",
+        "available": "1",
+        "special-offers":"N/A",
+        "size": "medium"
     },
    {
         "name": "Royale Suite",
         "img": "https://i.ibb.co/G2qXhhy/Rectangle-28.png",
         "description": "The Royal Suite is the epitome of luxury and opulence. This spacious and elegantly designed suite offers a grand living area, a separate bedroom with a plush king-sized bed, and a luxurious bathroom with a jacuzzi or a soaking tub. Guests staying in the Royal Suite are treated to personalized concierge service, a private balcony or terrace with stunning views, and access to exclusive amenities. This room is perfect for discerning travelers looking for the ultimate in comfort and sophistication.",
         "price": "500",
-        "rating": "5"
+        "rating": "5",
+        "available": "3",
+        "special-offers":"30%",
+        "size": "large"
     }
 
 ]

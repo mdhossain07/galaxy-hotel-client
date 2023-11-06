@@ -1,15 +1,7 @@
-/* eslint-disable react/prop-types */
-// import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 const Facilities = () => {
-  //   const result = useQuery({
-  //     queryKey: ["facilities"],
-  //     queryFn: () => {
-  //       fetch("facilities.json").then((res) => res.json());
-  //     },
-  //   });
   const [facilities, setFacilities] = useState([]);
 
   useEffect(() => {
@@ -18,7 +10,6 @@ const Facilities = () => {
       .then((data) => setFacilities(data));
   }, []);
 
-  console.log(facilities);
   return (
     <div className="text-center space-y-2">
       <p className="font-medium">Galaxy Services</p>
@@ -46,7 +37,7 @@ const FacilityCard = ({ facility }) => {
   );
 };
 
-FacilityCard.PropTypes = {
+FacilityCard.propTypes = {
   facility: PropTypes.node,
 };
 
