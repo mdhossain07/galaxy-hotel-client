@@ -1,11 +1,13 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const RoomDetails = () => {
   const loadedRoom = useLoaderData();
   const navigate = useNavigate();
   const [reviews, setReviews] = useState("");
+  const [showReviews, setShowReviews] = useState([]);
   const { _id, img, name, available, price, description } = loadedRoom;
 
   const { user } = useAuth();
@@ -49,8 +51,12 @@ const RoomDetails = () => {
   };
 
   const handleReviews = () => {
-    console.log("clicked...");
+    setShowReviews([...showReviews, reviews]);
+    setReviews("");
   };
+
+  console.log("reviews", reviews);
+  console.log("show Reviews", showReviews);
 
   return (
     <div className="flex flex-col md:flex-row justify-around">
@@ -61,14 +67,13 @@ const RoomDetails = () => {
         <p>Price: {price}</p>
         <p>{description}</p>
       </div>
-      {/* Review System */}
+      {/* Review Textarea */}
 
       <div className="mt-20">
         <h2 className="text-4xl font-semibold">Your Review </h2>
         <textarea
           className="border-2"
-          name=""
-          id=""
+          onBlur={(e) => setReviews(e.target.value)}
           cols="80"
           rows="6"
         ></textarea>
@@ -76,6 +81,12 @@ const RoomDetails = () => {
           Submit
         </button>
       </div>
+
+      {/* Show Review Area */}
+      {showReviews.map((review, index) => (
+        <Reviews user={user} key={index} review={review}></Reviews>
+      ))}
+
       <div className="hero min-h-screen">
         <div className="hero-content flex-col">
           <div className="text-center">
@@ -116,6 +127,23 @@ const RoomDetails = () => {
       </div>
     </div>
   );
+};
+
+const Reviews = ({ review, user }) => {
+  console.log(user);
+  return (
+    <div>
+      <p>{review}</p>
+      <p>{user?.email}</p>
+      <p>{user?.displayName}</p>
+      <img className="rounded-full" src={user?.photoURL} alt="" />
+    </div>
+  );
+};
+
+Reviews.propTypes = {
+  review: PropTypes.string,
+  user: PropTypes.object,
 };
 
 export default RoomDetails;
