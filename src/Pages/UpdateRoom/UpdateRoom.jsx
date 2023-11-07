@@ -1,6 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateRoom = () => {
+  const navigate = useNavigate();
   const loadedRoom = useLoaderData();
   const { _id, img, name, available, price, description, checkIn, checkOut } =
     loadedRoom;
@@ -29,7 +31,8 @@ const UpdateRoom = () => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
-          alert("update successfull!");
+          Swal.fire("Success!", "Booking info has been updated", "success");
+          navigate("/my-rooms");
         }
       });
   };
@@ -52,12 +55,12 @@ const UpdateRoom = () => {
             <form onSubmit={handleUpdate} className="card-body">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Check In</span>
+                  <span className="label-text font-medium">Check In</span>
                 </label>
                 <input
                   type="date"
                   placeholder="email"
-                  className="input input-bordered"
+                  className="input input-bordered text-sm"
                   name="checkIn"
                   defaultValue={checkIn}
                   required
@@ -65,19 +68,19 @@ const UpdateRoom = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Check Out</span>
+                  <span className="label-text font-medium">Check Out</span>
                 </label>
                 <input
                   type="date"
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input input-bordered text-sm"
                   name="checkOut"
                   defaultValue={checkOut}
                   required
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Book Now</button>
+                <button className="btn btn-primary">Update</button>
               </div>
             </form>
           </div>

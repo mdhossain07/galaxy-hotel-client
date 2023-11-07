@@ -2,6 +2,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import PropTypes from "prop-types";
+import Swal from "sweetalert2";
 
 const RoomDetails = () => {
   const loadedRoom = useLoaderData();
@@ -26,27 +27,31 @@ const RoomDetails = () => {
       price,
       checkIn,
       checkOut,
-      email: user.email,
+      email: user?.email,
     };
 
-    if (user) {
-      fetch("http://localhost:5001/booking", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(booking),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.insertedId) {
-            alert("booking successfull");
-          }
-        });
-    } else {
-      alert("booking failed");
-      return navigate("/login");
+    try {
+      if (user) {
+        fetch("http://localhost:5001/booking", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(booking),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.insertedId) {
+              Swal.fire("Success!", "Booking Successfull", "success");
+            }
+          });
+      } else {
+        Swal.fire("Error!", "You need to Login First", "error");
+        return navigate("/login");
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 
