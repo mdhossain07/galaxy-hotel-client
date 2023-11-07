@@ -26,7 +26,7 @@ const RoomDetails = () => {
       price,
       checkIn,
       checkOut,
-      user: user.email,
+      email: user.email,
     };
 
     if (user) {
@@ -54,9 +54,6 @@ const RoomDetails = () => {
     setShowReviews([...showReviews, reviews]);
     setReviews("");
   };
-
-  console.log("reviews", reviews);
-  console.log("show Reviews", showReviews);
 
   return (
     <div className="flex flex-col md:flex-row justify-around">

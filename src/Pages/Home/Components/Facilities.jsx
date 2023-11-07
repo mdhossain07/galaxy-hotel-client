@@ -38,7 +38,7 @@ const FacilityCard = ({ facility }) => {
 };
 
 FacilityCard.propTypes = {
-  facility: PropTypes.node,
+  facility: PropTypes.object,
 };
 
 export default Facilities;

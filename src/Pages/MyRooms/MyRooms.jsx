@@ -1,12 +1,20 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import moment from "moment/moment";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
+import axios from "axios";
 
 const MyRooms = () => {
-  const bookedRooms = useLoaderData();
-  const [myRooms, setMyRooms] = useState(bookedRooms);
+  const { user, loading } = useAuth();
+  const [myRooms, setMyRooms] = useState([]);
+
+  const url = `http://localhost:5001/booking?email=${user?.email}`;
+
+  useEffect(() => {
+    axios.get(url).then((res) => setMyRooms(res.data));
+  }, [url]);
 
   const handleRemove = (id, checkIn) => {
     console.log("delete", id, checkIn);
@@ -41,14 +49,20 @@ const MyRooms = () => {
   };
 
   return (
-    <div className="">
-      {myRooms.map((room, index) => (
-        <BookedRoom
-          key={index}
-          handleRemove={handleRemove}
-          room={room}
-        ></BookedRoom>
-      ))}
+    <div>
+      {loading ? (
+        <span className="loading loading-infinity loading-lg"></span>
+      ) : (
+        <div className="">
+          {myRooms.map((room, index) => (
+            <BookedRoom
+              key={index}
+              handleRemove={handleRemove}
+              room={room}
+            ></BookedRoom>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
