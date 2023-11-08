@@ -79,8 +79,10 @@ const RoomDetails = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
-          Swal.fire("Success!", "Your review has been added", "success");
+          if (data.insertedId) {
+            console.log(data);
+            Swal.fire("Success!", "Your review has been added", "success");
+          }
         });
     } else {
       Swal.fire("Error!", "You need to login first", "error");
