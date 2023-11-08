@@ -9,6 +9,7 @@ const Testimonials = () => {
     <>
       <h2 className="text-4xl font-semibold text-center mt-16">Testimonials</h2>
       <Swiper
+        data-aos="zoom-in-up"
         // install Swiper modules
         modules={[Pagination]}
         spaceBetween={50}

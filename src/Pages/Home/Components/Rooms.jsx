@@ -10,13 +10,22 @@ const Rooms = () => {
       <h2 className="text-4xl font-semibold mt-16 text-center">
         Check Our Rooms
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-center mt-10">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="3000"
+        className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-center mt-10 "
+      >
         <img className="rounded-lg" src={room1} alt="" />
         <img className="rounded-lg" src={room2} alt="" />
         <img className="rounded-lg" src={room3} alt="" />
         <img className="rounded-lg" src={room4} alt="" />
       </div>
-      <div className="flex justify-center mt-10">
+      <div
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+        className="flex justify-center mt-10"
+      >
         <Link to="/rooms">
           <button className="p-3 rounded-sm bg-[#AA8453] text-white border-none text-lg">
             BOOK NOW

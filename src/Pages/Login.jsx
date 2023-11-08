@@ -28,6 +28,7 @@ const Login = () => {
           .post(
             "https://galaxy-hotel-server.vercel.app/jwt",
             { email: res.user.email },
+            // user,
             { withCredentials: true }
           )
           .then((res) => {
