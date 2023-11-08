@@ -1,6 +1,7 @@
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
+import logo from "../assets/images/Galaxy Luxury Hotel Logo.png";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -21,7 +22,8 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className={({ isActive }) => (isActive ? `bg-[#AA8453]` : "")}
+          className={({ isActive }) => (isActive ? "text-[#AA8453]" : "")}
+          style={{ fontWeight: "600", fontSize: "18px" }}
         >
           Home
         </NavLink>
@@ -29,7 +31,8 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/rooms"
-          className={({ isActive }) => (isActive ? `bg-[#AA8453]` : "")}
+          className={({ isActive }) => (isActive ? "text-[#AA8453]" : "")}
+          style={{ fontWeight: "600", fontSize: "18px" }}
         >
           Rooms
         </NavLink>
@@ -38,7 +41,10 @@ const Navbar = () => {
         {user ? (
           <NavLink
             to="/my-rooms"
-            className={({ isActive }) => (isActive ? `bg-[#AA8453]` : "")}
+            className={({ isActive }) =>
+              isActive ? "text-[#AA8453] text-xl font-semibold" : ""
+            }
+            style={{ fontWeight: "600", fontSize: "18px" }}
           >
             My Rooms
           </NavLink>
@@ -49,12 +55,12 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="">
-      <div className="drawer">
+    <div>
+      <div className="drawer ">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* Navbar */}
-          <div className="w-full navbar bg-transparent container mx-auto px-8 md:px-16 lg:px-24">
+          <div className="w-full navbar container mx-auto px-8 md:px-16 lg:px-24">
             <div className="flex-none lg:hidden">
               <label
                 htmlFor="my-drawer-3"
@@ -76,7 +82,7 @@ const Navbar = () => {
                 </svg>
               </label>
             </div>
-            <div className="flex-1 px-2 mx-2">Galaxy Luxury Hotel</div>
+            <img className="w-[110px]" src={logo} alt="" />
             <div className="flex-none hidden lg:block">
               <ul className="flex gap-5">
                 {/* Navbar menu content here */}

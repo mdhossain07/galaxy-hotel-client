@@ -1,12 +1,12 @@
 [
     {
         "name": "Junior Suite",
-        "img": "https://i.ibb.co/stMswMJ/Rectangle-27.png",
+        "img": "https://i.ibb.co/C2LLrhL/hotel-1979406-1280.jpg",
         "description": "The Junior Suite is a stylish and generously sized room that provides a separate living area and bedroom. It often includes a king-sized bed, a comfortable seating area, and an en-suite bathroom with upscale fixtures. Junior Suites offer more space and privacy compared to standard rooms, making them ideal for both business and leisure travelers. These suites may also come with added amenities such as a work desk, a mini-kitchen, and access to exclusive hotel facilities.",
         "price": "150",
         "rating": "5",
         "available": "3",
-        "special-offers":"N/A",
+        "offers":"N/A",
         "size": "small"
     },
     {
@@ -16,7 +16,7 @@
         "price": "200",
         "rating": "4.5",
         "available": "2",
-        "special-offers":"30%",
+        "offers":"30%",
         "size": "medium"
     },
     {
@@ -26,7 +26,7 @@
         "price": "250",
         "rating": "4.5",
         "available": "1",
-        "special-offers":"N/A",
+        "offers":"N/A",
         "size": "medium"
     },
 
@@ -37,27 +37,27 @@
         "price": "300",
         "rating": "5",
         "available": "2",
-        "special-offers":"20%",
+        "offers":"20%",
         "size": "large"
     },
     {
         "name": "Master Room",
-        "img": "https://i.ibb.co/DYY7Wzk/Rectangle-26.png",
+        "img": "https://i.ibb.co/wsmNg5j/room-1-1.png",
         "description": "The Master Room is a luxurious and spacious accommodation that offers a blend of comfort and elegance. This room typically includes a king-sized bed or two queen-sized beds, a well-appointed bathroom with premium toiletries, and a separate seating area. Guests staying in a Master Room can enjoy additional amenities like a coffee maker, a minibar, and access to a private lounge or dedicated concierge services. It's a perfect choice for those seeking a touch of sophistication during their stay.",
         "price": "250",
         "rating": "5",
         "available": "1",
-        "special-offers":"N/A",
+        "offers":"N/A",
         "size": "medium"
     },
    {
         "name": "Royale Suite",
-        "img": "https://i.ibb.co/G2qXhhy/Rectangle-28.png",
+        "img": "https://i.ibb.co/6ZnycRW/window-view-1505463-1280.jpg",
         "description": "The Royal Suite is the epitome of luxury and opulence. This spacious and elegantly designed suite offers a grand living area, a separate bedroom with a plush king-sized bed, and a luxurious bathroom with a jacuzzi or a soaking tub. Guests staying in the Royal Suite are treated to personalized concierge service, a private balcony or terrace with stunning views, and access to exclusive amenities. This room is perfect for discerning travelers looking for the ultimate in comfort and sophistication.",
         "price": "500",
         "rating": "5",
         "available": "3",
-        "special-offers":"30%",
+        "offers":"30%",
         "size": "large"
     }
 

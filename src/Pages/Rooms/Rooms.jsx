@@ -52,7 +52,11 @@ const RoomsCard = ({ room }) => {
     <div>
       <div className="flex gap-5 mt-10 items-center">
         <NavLink to={`/room/${_id}`}>
-          <img className="w-[270px] h-[188px] rounded-lg " src={img} alt="" />
+          <img
+            className="md:w-[270px] h-[188px] rounded-lg "
+            src={img}
+            alt=""
+          />
         </NavLink>
         <div className="space-y-2">
           <h2 className="text-2xl font-semibold">{name}</h2>

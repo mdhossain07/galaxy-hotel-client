@@ -7,18 +7,19 @@ import "swiper/css/pagination";
 const Testimonials = () => {
   return (
     <>
+      <h2 className="text-4xl font-semibold text-center mt-16">Testimonials</h2>
       <Swiper
         // install Swiper modules
         modules={[Pagination]}
         spaceBetween={50}
         slidesPerView={1}
         pagination={{ clickable: true }}
-        className="w-[800px]"
+        className="w-[500px] lg:w-[800px] mt-16"
       >
         <SwiperSlide>
-          <figure className="max-w-screen-md mx-auto text-center">
+          <figure className="max-w-screen-md mx-auto text-center -mt-2">
             <svg
-              className="w-10 h-10 mx-auto mb-3 text-gray-400 dark:text-gray-600"
+              className="w-10 h-10 mx-auto mb-3 text-[#AA8453]"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -28,9 +29,9 @@ const Testimonials = () => {
             </svg>
             <blockquote>
               <p className="text-2xl italic font-medium text-gray-900 ">
-                Flowbite is just awesome. It contains tons of predesigned
-                components and pages starting from login screen to complex
-                dashboard. Perfect choice for your next SaaS application.
+                My recent stay at the Galaxy Luxury Hotel was exceptional. From
+                the moment I arrived, the staff made me feel like a VIP. The
+                room was incredibly comfortable.
               </p>
             </blockquote>
             <figcaption className="flex items-center justify-center mt-6 space-x-3">
@@ -40,11 +41,9 @@ const Testimonials = () => {
                 alt="profile picture"
               />
               <div className="flex items-center">
-                <cite className="pr-3 font-medium text-gray-900">
-                  Micheal Gough
-                </cite>
+                <cite className="pr-3 font-medium text-gray-900">John Doe</cite>
                 <cite className="pl-3 text-sm text-gray-500 ">
-                  CEO at Google
+                  Business Traveller
                 </cite>
               </div>
             </figcaption>
@@ -53,7 +52,7 @@ const Testimonials = () => {
         <SwiperSlide>
           <figure className="max-w-screen-md mx-auto text-center">
             <svg
-              className="w-10 h-10 mx-auto mb-3 text-gray-400 dark:text-gray-600"
+              className="w-10 h-10 mx-auto mb-3 text-[#AA8453]"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -63,11 +62,9 @@ const Testimonials = () => {
             </svg>
             <blockquote>
               <p className="text-2xl italic font-medium text-gray-900 ">
-                Flowbite is just awesome. It contains tons of predesigned
-                components and pages starting from login screen to complex
-                dashboard.
-                <br />
-                Perfect choice for your next SaaS application.
+                We couldnot have chosen a more perfect place for our honeymoon.
+                The Galaxy Luxury Hotel oozed romance and luxury. The room was
+                beautifully decorated.
               </p>
             </blockquote>
             <figcaption className="flex items-center justify-center mt-6 space-x-3">
@@ -78,10 +75,10 @@ const Testimonials = () => {
               />
               <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
                 <cite className="pr-3 font-medium text-gray-900">
-                  Micheal Gough
+                  Sarah & Mark
                 </cite>
                 <cite className="pl-3 text-sm text-gray-500 ">
-                  CEO at Google
+                  Honeymooners
                 </cite>
               </div>
             </figcaption>
@@ -90,7 +87,7 @@ const Testimonials = () => {
         <SwiperSlide>
           <figure className="max-w-screen-md mx-auto text-center">
             <svg
-              className="w-10 h-10 mx-auto mb-3 text-gray-400 dark:text-gray-600"
+              className="w-10 h-10 mx-auto mb-3 text-[#AA8453]"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -100,9 +97,9 @@ const Testimonials = () => {
             </svg>
             <blockquote>
               <p className="text-2xl italic font-medium text-gray-900 ">
-                Flowbite is just awesome. It contains tons of predesigned
-                components and pages starting from login screen to complex
-                dashboard. Perfect choice for your next SaaS application.
+                Our family had a fantastic time at the Galaxy Luxury Hotel. The
+                staff went out of their way to accommodate our needs, and the
+                pick-up service from the airport made our arrival stress-free.
               </p>
             </blockquote>
             <figcaption className="flex items-center justify-center mt-6 space-x-3">
@@ -112,11 +109,9 @@ const Testimonials = () => {
                 alt="profile picture"
               />
               <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
-                <cite className="pr-3 font-medium text-gray-900">
-                  Micheal Gough
-                </cite>
+                <cite className="pr-3 font-medium text-gray-900">Lisa T.</cite>
                 <cite className="pl-3 text-sm text-gray-500 ">
-                  CEO at Google
+                  Family Vacation
                 </cite>
               </div>
             </figcaption>

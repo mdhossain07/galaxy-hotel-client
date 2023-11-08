@@ -2,9 +2,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import googleIcon from "../assets/icons/Google__G__Logo 1.svg";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const Login = () => {
-  const { signIn, googleLogin } = useAuth();
+  const { loginUser, googleLogin } = useAuth();
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -16,10 +17,24 @@ const Login = () => {
 
     e.target.reset();
 
-    signIn(email, password)
+    loginUser(email, password)
       .then((res) => {
         Swal.fire("Success!", "Logged in successfully!", "success");
-        navigate(location?.state ? location.state : "/");
+        // const user = { email };
+
+        // get access token
+        axios
+          .post(
+            "http://localhost:5001/jwt",
+            { email: res.user.email },
+            { withCredentials: true }
+          )
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.success) {
+              navigate(location?.state ? location?.state : "/");
+            }
+          });
         console.log(res.user);
       })
       .catch((err) => {
@@ -29,9 +44,22 @@ const Login = () => {
 
   const handleGoogleLogin = () => {
     googleLogin()
-      .then(() => {
+      .then((res) => {
         Swal.fire("Success!", "Logged in successfully!", "success");
-        navigate(location?.state ? location.state : "/");
+        console.log(res);
+        axios
+          .post(
+            "http://localhost:5001/jwt",
+            { email: res.user.email },
+            { withCredentials: true }
+          )
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.success) {
+              navigate(location?.state ? location?.state : "/");
+            }
+          });
+        console.log(res.user);
       })
       .catch((err) => {
         Swal.fire("Error!", err.message, "error");

@@ -13,7 +13,9 @@ const MyRooms = () => {
   const url = `http://localhost:5001/booking?email=${user?.email}`;
 
   useEffect(() => {
-    axios.get(url).then((res) => setMyRooms(res.data));
+    axios
+      .get(url, { withCredentials: true })
+      .then((res) => setMyRooms(res.data));
   }, [url]);
 
   const handleRemove = (id, checkIn) => {
@@ -70,18 +72,22 @@ const MyRooms = () => {
 const BookedRoom = ({ room, handleRemove }) => {
   const { img, name, price, _id, checkIn } = room;
   return (
-    <div className="flex gap-10 items-center">
+    <div className="flex flex-col md:flex-row gap-10 mt-10 items-center">
       <img className="w-[400px] rounded-lg" src={img} alt="" />
-      <div>
-        <h2>{name}</h2>
-        <p>${price}</p>
-        <p>Available: {} </p>
-        <button onClick={() => handleRemove(_id, checkIn)} className="btn">
-          Remove
-        </button>
-        <Link to={`/update-room/${_id}`}>
-          <button className="btn">Update Date</button>
-        </Link>
+      <div className="space-y-2">
+        <h2 className="text-xl font-semibold">Package Name: {name}</h2>
+        <p className="font-semibold">Price: ${price}</p>
+        <div className="flex gap-5">
+          <button
+            onClick={() => handleRemove(_id, checkIn)}
+            className="btn btn-neutral"
+          >
+            Remove
+          </button>
+          <Link to={`/update-room/${_id}`}>
+            <button className="btn btn-neutral">Update Date</button>
+          </Link>
+        </div>
       </div>
     </div>
   );
