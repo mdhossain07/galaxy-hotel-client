@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import room1 from "../../../assets/images/room-1.jpg";
 import room2 from "../../../assets/images/room-2.jpg";
 import room4 from "../../../assets/images/room-4.jpg";
@@ -16,9 +17,11 @@ const Rooms = () => {
         <img className="rounded-lg" src={room4} alt="" />
       </div>
       <div className="flex justify-center mt-10">
-        <button className="p-3 rounded-sm bg-[#AA8453] text-white border-none text-lg">
-          BOOK NOW
-        </button>
+        <Link to="/rooms">
+          <button className="p-3 rounded-sm bg-[#AA8453] text-white border-none text-lg">
+            BOOK NOW
+          </button>
+        </Link>
       </div>
     </div>
   );

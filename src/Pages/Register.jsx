@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -49,6 +50,9 @@ const Register = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Galaxy Luxury Hotel | Register </title>
+      </Helmet>
       <div className="">
         <div className="hero min-h-screen ">
           <div className="hero-content flex-col">
@@ -108,7 +112,7 @@ const Register = () => {
                   />
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn bg-[#DD3333] text-white border-none">
+                  <button className="btn bg-[#AA8453] text-white border-none">
                     Register
                   </button>
                 </div>
@@ -116,7 +120,7 @@ const Register = () => {
                   <p className=" text-sm font-medium">
                     Already have an account?
                     <Link to="/login">
-                      <span className="text-red-500 text-sm font-semibold">
+                      <span className="text-[#AA8453] text-sm font-semibold">
                         Login Now
                       </span>
                     </Link>

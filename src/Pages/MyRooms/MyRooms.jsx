@@ -5,12 +5,13 @@ import moment from "moment/moment";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const MyRooms = () => {
   const { user, loading } = useAuth();
   const [myRooms, setMyRooms] = useState([]);
 
-  const url = `http://localhost:5001/booking?email=${user?.email}`;
+  const url = `https://galaxy-hotel-server.vercel.app/booking?email=${user?.email}`;
 
   useEffect(() => {
     axios
@@ -22,14 +23,14 @@ const MyRooms = () => {
     console.log("delete", id, checkIn);
 
     const checkInDate = moment(checkIn);
-    console.log(checkInDate);
+    // console.log(checkInDate);
     const copyDate = checkInDate.clone();
     const cancelDate = copyDate.subtract(1, "day");
-    console.log(cancelDate);
+    // console.log(cancelDate);
     const currentDate = moment();
-    console.log(currentDate);
+    // console.log(currentDate);
     const checkCancel = currentDate.isBefore(cancelDate);
-    console.log(checkCancel);
+    // console.log(checkCancel);
 
     if (checkCancel) {
       Swal.fire({
@@ -42,7 +43,7 @@ const MyRooms = () => {
         confirmButtonText: "Yes, delete it!",
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:5001/booking/${id}`, {
+          fetch(`https://galaxy-hotel-server.vercel.app/booking/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())
@@ -64,6 +65,9 @@ const MyRooms = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Galaxy Luxury Hotel | My Rooms </title>
+      </Helmet>
       {loading ? (
         <span className="loading loading-infinity loading-lg"></span>
       ) : (

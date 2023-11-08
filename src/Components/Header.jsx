@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
 import banner from "../assets/images/banner-1.jpg";
+import banner2 from "../assets/images/room-2.jpg";
+import banner3 from "../assets/images/room-4.jpg";
 
 const Header = () => {
   return (
@@ -18,9 +21,11 @@ const Header = () => {
                 <h1 className="mb-5 text-5xl font-bold">
                   LIFE ENJOY WITH THE GREAT MOMENTS
                 </h1>
-                <button className="p-3 rounded-sm bg-[#AA8453] text-white border-none text-lg">
-                  BOOK NOW
-                </button>
+                <Link to="/rooms">
+                  <button className="p-3 rounded-sm bg-[#AA8453] text-white border-none text-lg">
+                    BOOK NOW
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -37,7 +42,7 @@ const Header = () => {
           <div
             className="hero min-h-screen"
             style={{
-              backgroundImage: `url(${banner})`,
+              backgroundImage: `url(${banner2})`,
             }}
           >
             <div className="hero-overlay bg-opacity-20"></div>
@@ -47,9 +52,11 @@ const Header = () => {
                 <h1 className="mb-5 text-5xl font-bold">
                   LIFE ENJOY WITH THE GREAT MOMENTS
                 </h1>
-                <button className="p-3 rounded-sm bg-[#AA8453] text-white border-none text-lg">
-                  BOOK NOW
-                </button>
+                <Link to="/rooms">
+                  <button className="p-3 rounded-sm bg-[#AA8453] text-white border-none text-lg">
+                    BOOK NOW
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -66,7 +73,7 @@ const Header = () => {
           <div
             className="hero min-h-screen"
             style={{
-              backgroundImage: `url(${banner})`,
+              backgroundImage: `url(${banner3})`,
             }}
           >
             <div className="hero-overlay bg-opacity-20"></div>
@@ -77,9 +84,11 @@ const Header = () => {
                   LIFE ENJOY WITH THE GREAT MOMENTS
                 </h1>
 
-                <button className="p-3 rounded-sm bg-[#AA8453] text-white border-none text-lg">
-                  BOOK NOW
-                </button>
+                <Link to="/rooms">
+                  <button className="p-3 rounded-sm bg-[#AA8453] text-white border-none text-lg">
+                    BOOK NOW
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

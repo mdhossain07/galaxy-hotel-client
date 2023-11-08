@@ -38,6 +38,15 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) => (isActive ? "text-[#AA8453]" : "")}
+          style={{ fontWeight: "600", fontSize: "18px" }}
+        >
+          Contact Us
+        </NavLink>
+      </li>
+      <li>
         {user ? (
           <NavLink
             to="/my-rooms"
@@ -120,7 +129,7 @@ const Navbar = () => {
               <div className="navbar-end">
                 <Link
                   to="/login"
-                  className="btn border-none bg-[#DD3333] text-white"
+                  className="btn border-none bg-[#AA8453] text-white"
                 >
                   Login
                 </Link>
@@ -129,7 +138,7 @@ const Navbar = () => {
           </div>
 
           {/* Page content here */}
-          <div className="container mx-auto px-8 md:px-16 lg:px-24">
+          <div className="bg-base=200 container mx-auto px-8 md:px-16 lg:px-24">
             <Outlet />
           </div>
         </div>

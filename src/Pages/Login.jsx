@@ -3,6 +3,7 @@ import googleIcon from "../assets/icons/Google__G__Logo 1.svg";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { loginUser, googleLogin } = useAuth();
@@ -25,7 +26,7 @@ const Login = () => {
         // get access token
         axios
           .post(
-            "http://localhost:5001/jwt",
+            "https://galaxy-hotel-server.vercel.app/jwt",
             { email: res.user.email },
             { withCredentials: true }
           )
@@ -49,7 +50,7 @@ const Login = () => {
         console.log(res);
         axios
           .post(
-            "http://localhost:5001/jwt",
+            "https://galaxy-hotel-server.vercel.app/jwt",
             { email: res.user.email },
             { withCredentials: true }
           )
@@ -68,6 +69,9 @@ const Login = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Galaxy Luxury Hotel | Login </title>
+      </Helmet>
       <div className="hero min-h-[70vh]">
         <div className="hero-content flex-col">
           <div className="card flex-shrink-0 md:w-[550px] h-[420px] shadow-2xl ">
@@ -102,7 +106,7 @@ const Login = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-[#DD3333] text-white border-none">
+                <button className="btn bg-[#AA8453] text-white border-none">
                   Login
                 </button>
               </div>
@@ -110,7 +114,7 @@ const Login = () => {
                 <p className=" text-sm font-medium">
                   New to this website?
                   <Link to="/register">
-                    <span className="text-red-500 text-sm font-semibold">
+                    <span className="text-[#AA8453] text-sm font-semibold">
                       Register Now
                     </span>
                   </Link>

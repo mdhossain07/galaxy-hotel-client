@@ -4,6 +4,7 @@ import axios from "axios";
 import star from "../../assets/icons/star_1_.png";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Helmet } from "react-helmet-async";
 
 const Rooms = () => {
   const { loading } = useAuth();
@@ -11,8 +12,8 @@ const Rooms = () => {
   const [isSorted, setIsSorted] = useState(1);
 
   useEffect(() => {
-    axios(`http://localhost:5001/rooms?sort=${isSorted}`).then((data) =>
-      setRooms(data.data)
+    axios(`https://galaxy-hotel-server.vercel.app/rooms?sort=${isSorted}`).then(
+      (data) => setRooms(data.data)
     );
   }, [isSorted]);
 
@@ -22,6 +23,9 @@ const Rooms = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Galaxy Luxury Hotel | Rooms </title>
+      </Helmet>
       <div>
         {isSorted === 1 ? (
           <button onClick={handleFilter} className="btn btn-accent">

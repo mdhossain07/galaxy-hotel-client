@@ -4,20 +4,21 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const RoomDetails = () => {
   const loadedRoom = useLoaderData();
   const navigate = useNavigate();
   const [reviews, setReviews] = useState("");
   const [myReviews, setMyReviews] = useState([]);
-  const { _id, img, name, rating, available, price, description, size } =
+  const { _id, img, name, offers, available, price, description, size } =
     loadedRoom;
 
   const { user } = useAuth();
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5001/review?sid=${_id}`)
+      .get(`https://galaxy-hotel-server.vercel.app/review?sid=${_id}`)
       .then((res) => setMyReviews(res.data));
   }, [_id]);
 
@@ -40,7 +41,7 @@ const RoomDetails = () => {
 
     try {
       if (user) {
-        fetch("http://localhost:5001/booking", {
+        fetch("https://galaxy-hotel-server.vercel.app/booking", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -70,7 +71,7 @@ const RoomDetails = () => {
     };
 
     if (user?.email) {
-      fetch("http://localhost:5001/review", {
+      fetch("https://galaxy-hotel-server.vercel.app/review", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -92,6 +93,9 @@ const RoomDetails = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Galaxy Luxury Hotel | Room Details </title>
+      </Helmet>
       <div className="flex flex-col md:flex-row justify-around gap-10">
         <div className="md:w-1/2 mt-10">
           <img className="w-full rounded-lg mb-10 " src={img} alt="" />
@@ -112,8 +116,8 @@ const RoomDetails = () => {
             </p>
 
             <p className="">
-              Rating <br />
-              <span className="text-xl">{rating}/5</span>
+              Discount <br />
+              <span className="text-xl">{offers}</span>
             </p>
           </div>
 

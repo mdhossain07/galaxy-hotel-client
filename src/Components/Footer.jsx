@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../assets/images/Galaxy Luxury Hotel Logo.png";
 
 const Footer = () => {
@@ -18,8 +19,13 @@ const Footer = () => {
 
         <nav className="md:mt-10">
           <header className="footer-title">Legal</header>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
+
+          <Link to="/terms-of-use" className="link link-hover">
+            Terms of use
+          </Link>
+          <Link to="/privacy-policy" className="link link-hover">
+            Privacy policy
+          </Link>
           <a className="link link-hover">Cookie policy</a>
         </nav>
 

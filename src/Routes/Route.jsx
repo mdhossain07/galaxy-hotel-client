@@ -9,6 +9,9 @@ import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage";
 import RoomDetails from "../Pages/RoomDetails/RoomDetails";
 import UpdateRoom from "../Pages/UpdateRoom/UpdateRoom";
+import ContactUs from "../Pages/ContactUs";
+import TermsOfUse from "../Pages/TermsOfUse";
+import PrivacyPolicy from "../Pages/PrivacyPolicy";
 
 const routes = createBrowserRouter([
   {
@@ -28,7 +31,7 @@ const routes = createBrowserRouter([
         path: "/room/:id",
         element: <RoomDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5001/rooms/${params.id}`),
+          fetch(`https://galaxy-hotel-server.vercel.app/rooms/${params.id}`),
       },
       {
         path: "/my-rooms",
@@ -42,7 +45,7 @@ const routes = createBrowserRouter([
         path: "/update-room/:id",
         element: <UpdateRoom />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5001/booking/${params.id}`),
+          fetch(`https://galaxy-hotel-server.vercel.app/booking/${params.id}`),
       },
       {
         path: "/login",
@@ -51,6 +54,18 @@ const routes = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/contact",
+        element: <ContactUs />,
+      },
+      {
+        path: "/terms-of-use",
+        element: <TermsOfUse />,
+      },
+      {
+        path: "/privacy-policy",
+        element: <PrivacyPolicy />,
       },
     ],
   },
