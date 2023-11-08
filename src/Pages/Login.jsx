@@ -47,19 +47,6 @@ const Login = () => {
     googleLogin()
       .then((res) => {
         Swal.fire("Success!", "Logged in successfully!", "success");
-        console.log(res);
-        axios
-          .post(
-            "https://galaxy-hotel-server.vercel.app/jwt",
-            { email: res.user.email },
-            { withCredentials: true }
-          )
-          .then((res) => {
-            console.log(res.data);
-            if (res.data.success) {
-              navigate(location?.state ? location?.state : "/");
-            }
-          });
         console.log(res.user);
       })
       .catch((err) => {

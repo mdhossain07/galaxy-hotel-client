@@ -11,10 +11,12 @@ const RoomDetails = () => {
   const navigate = useNavigate();
   const [reviews, setReviews] = useState("");
   const [myReviews, setMyReviews] = useState([]);
+  const [number, setNumber] = useState("");
   const { _id, img, name, offers, available, price, description, size } =
     loadedRoom;
 
   const { user } = useAuth();
+  console.log(available);
 
   useEffect(() => {
     axios
@@ -29,7 +31,7 @@ const RoomDetails = () => {
     const checkOut = form.checkOut.value;
 
     const booking = {
-      _id,
+      roomId: _id,
       img,
       name,
       available,
@@ -68,6 +70,9 @@ const RoomDetails = () => {
     const allReviews = {
       reviews,
       sid: _id,
+      name: user.displayName,
+      timestamp: new Date(),
+      rating: number,
     };
 
     if (user?.email) {
@@ -147,7 +152,18 @@ const RoomDetails = () => {
               cols="80"
               rows="6"
             ></textarea>
-            <button onClick={handleReviews} className="btn btn-neutral">
+            <label htmlFor="">
+              Rating on 5:
+              <input
+                onBlur={(e) => setNumber(e.target.value)}
+                type="number"
+                name="5"
+                id=""
+                className="ml-3 border-2"
+              />
+            </label>
+            <br />
+            <button onClick={handleReviews} className="btn btn-neutral mt-10">
               Submit
             </button>
           </div>
@@ -186,7 +202,16 @@ const RoomDetails = () => {
                   />
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Book Now</button>
+                  <button
+                    className={`btn btn-primary ${
+                      available === 0 ? "hidden" : "block"
+                    }`}
+                  >
+                    BOOK NOW
+                  </button>
+                  <p className="font-semibold text-center text-xl text-red-500">
+                    {available === 0 && "Booking Not Available"}
+                  </p>
                 </div>
               </form>
             </div>
@@ -198,11 +223,15 @@ const RoomDetails = () => {
 };
 
 const Reviews = ({ review }) => {
-  const { reviews } = review;
+  const { reviews, name, timestamp, rating } = review;
   return (
     <div className="mt-5">
-      <p className="text-md font-medium">{reviews}</p>
-      {/* <p>{user?.displayName}</p> */}
+      <p className="text-xl text-blue-600 font-medium">{reviews}</p>
+      <p className="font-medium">Date: {timestamp}</p>
+      <p className="font-medium">Raitng: {rating}</p>
+      <p className="font-medium">
+        Review By: <span>{name}</span>{" "}
+      </p>
       {/* <img className="rounded-full" src={user?.photoURL} alt="" /> */}
     </div>
   );
