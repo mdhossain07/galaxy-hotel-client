@@ -14,13 +14,11 @@ const Rooms = () => {
   const [filterRooms, setFilterRooms] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5001/rooms").then((data) => {
+    axios.get("https://galaxy-hotel-server.vercel.app/rooms").then((data) => {
       setRooms(data.data);
       setFilterRooms(data.data);
     });
   }, []);
-
-  console.log(lowPrice, highPrice);
 
   useEffect(() => {
     const filteredRooms = rooms.filter((room) => {

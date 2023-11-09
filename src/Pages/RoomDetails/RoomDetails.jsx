@@ -14,13 +14,12 @@ const RoomDetails = () => {
   const [number, setNumber] = useState("");
   const { _id, img, name, offers, available, price, description, size } =
     loadedRoom;
-  console.log(loadedRoom);
 
   const { user } = useAuth();
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5001/review?sid=${_id}`)
+      .get(`https://galaxy-hotel-server.vercel.app/review?sid=${_id}`)
       .then((res) => setMyReviews(res.data));
   }, [_id]);
 
@@ -41,11 +40,11 @@ const RoomDetails = () => {
       email: user?.email,
     };
 
-    console.log(booking);
+    // console.log(booking);
 
     try {
       if (user) {
-        fetch("http://localhost:5001/booking", {
+        fetch("https://galaxy-hotel-server.vercel.app/booking", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -78,7 +77,7 @@ const RoomDetails = () => {
     };
 
     if (user?.email) {
-      fetch("http://localhost:5001/review", {
+      fetch("https://galaxy-hotel-server.vercel.app/review", {
         method: "POST",
         headers: {
           "content-type": "application/json",

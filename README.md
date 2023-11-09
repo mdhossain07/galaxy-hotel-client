@@ -1,5 +1,7 @@
 # Galaxy Luxury Website
 
+website live link: https://galaxy-hotel-e2efd.web.app/
+
 Features:
 
 1. Users can book their favourite hotel room for a specific time range.
