@@ -38,14 +38,14 @@ const Rooms = () => {
 
       {/* Price Filtering */}
 
-      <div className="space-y-5">
+      <div className="space-y-5 ml-10 mt-10">
         <h2 className="text-xl font-medium">Filter By Price Range</h2>
 
         <input
           type="text"
           placeholder="Min Price"
           value={lowPrice}
-          className="border-2 border-[#AA8453] rounded-md indent-3 h-[30px] w-[200px] "
+          className="border-2 border-[#AA8453] rounded-md indent-3 h-[30px] w-[200px] ml-10"
           onChange={(e) => setLowPrice(parseFloat(e.target.value))}
         />
         <input
@@ -60,7 +60,7 @@ const Rooms = () => {
       {loading ? (
         <span className="loading loading-infinity loading-lg"></span>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
           {filterRooms.map((room) => (
             <RoomsCard key={room._id} room={room}></RoomsCard>
           ))}
@@ -77,14 +77,14 @@ const RoomsCard = ({ room }) => {
       <div className="flex gap-5 mt-10 items-center">
         <NavLink to={`/room/${_id}`}>
           <img
-            className="md:w-[270px] h-[188px] rounded-lg "
+            className="w-full md:w-[250px] h-[200px] rounded-lg "
             src={img}
             alt=""
           />
         </NavLink>
         <div className="space-y-2">
           <h2 className="text-2xl font-semibold">{name}</h2>
-          <p>{description.slice(0, 80)}...</p>
+          <p className="md:w-[270px]">{description.slice(0, 80)}...</p>
           <p className="font-medium">Rooms Available: {available}</p>
           <div className="flex items-center gap-5">
             <div className="flex gap-1 last:items-center">

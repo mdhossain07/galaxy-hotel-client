@@ -106,8 +106,8 @@ const RoomDetails = () => {
         <div className="md:w-1/2 mt-10">
           <img className="w-full rounded-lg mb-10 " src={img} alt="" />
           <h2 className="text-2xl font-semibold mb-5">Description of Room</h2>
-          <p className="w-[400px] md:w-full mb-10">{description}</p>
-          <div className="flex flex-col md:flex-row w-[400px] md:w-full text-center md:mx-auto bg-[#F5F6F7] p-5 rounded-xl border border-[#AA8453] gap-5 md:gap-20 text-md font-semibold mt-10">
+          <p className="w-full mb-10">{description}</p>
+          <div className="flex flex-col lg:flex-row  text-center md:mx-auto bg-[#F5F6F7] p-5 rounded-xl border border-[#AA8453] gap-5 md:gap-20 text-md font-semibold mt-10">
             <p className="">
               Room Size <br /> <span className="text-xl">{size}</span>
             </p>

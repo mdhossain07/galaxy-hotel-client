@@ -21,7 +21,7 @@ const ContactUs = () => {
         <title>Galaxy Luxury Hotel | Contact Us </title>
       </Helmet>
       <div className="hero-content flex-col">
-        <div className="card flex-shrink-0 md:w-[550px]  shadow-2xl ">
+        <div className="card flex-shrink-0 md:w-[550px] mx-auto shadow-2xl ">
           <div className="text-center">
             <h2 className="text-2xl lg:text-3xl font-bold mt-10">Contact Us</h2>
           </div>
