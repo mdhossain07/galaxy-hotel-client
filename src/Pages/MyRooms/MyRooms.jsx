@@ -33,19 +33,6 @@ const MyRooms = () => {
     // console.log(checkCancel);
 
     if (checkCancel) {
-      // fetch(`http://localhost:5001/booking/${id}`, {
-      //   method: "DELETE",
-      // })
-      //   .then((res) => res.json())
-      //   .then((data) => {
-      //     console.log(data);
-      //     if (data.deletedCount > 0) {
-      //       Swal.fire("Success!", "Booking Cancellation Done", "success");
-      //       const remaining = myRooms.filter((room) => room._id !== id);
-      //       setMyRooms(remaining);
-      //     }
-      //   });
-
       Swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",

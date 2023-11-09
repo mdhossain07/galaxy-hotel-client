@@ -9,39 +9,61 @@ import { Helmet } from "react-helmet-async";
 const Rooms = () => {
   const { loading } = useAuth();
   const [rooms, setRooms] = useState([]);
-  const [isSorted, setIsSorted] = useState(1);
+  const [lowPrice, setLowPrice] = useState("");
+  const [highPrice, setHighPrice] = useState("");
+  const [filterRooms, setFilterRooms] = useState([]);
 
   useEffect(() => {
-    axios(`http://localhost:5001/rooms?sort=${isSorted}`).then((data) =>
-      setRooms(data.data)
-    );
-  }, [isSorted]);
+    axios.get("http://localhost:5001/rooms").then((data) => {
+      setRooms(data.data);
+      setFilterRooms(data.data);
+    });
+  }, []);
 
-  const handleFilter = () => {
-    setIsSorted(isSorted === 1 ? -1 : 1);
-  };
+  console.log(lowPrice, highPrice);
+
+  useEffect(() => {
+    const filteredRooms = rooms.filter((room) => {
+      const price = room.price;
+      return (
+        (!lowPrice || price >= lowPrice) && (!highPrice || price <= highPrice)
+      );
+    });
+    setFilterRooms(filteredRooms);
+  }, [lowPrice, highPrice, rooms]);
 
   return (
     <div>
       <Helmet>
         <title>Galaxy Luxury Hotel | Rooms </title>
       </Helmet>
-      <div>
-        {isSorted === 1 ? (
-          <button onClick={handleFilter} className="btn btn-accent">
-            Filter By Highest
-          </button>
-        ) : (
-          <button onClick={handleFilter} className="btn btn-accent">
-            Filter By Lowest
-          </button>
-        )}
+
+      {/* Price Filtering */}
+
+      <div className="space-y-5">
+        <h2 className="text-xl font-medium">Filter By Price Range</h2>
+
+        <input
+          type="text"
+          placeholder="Min Price"
+          value={lowPrice}
+          className="border-2 border-[#AA8453] rounded-md indent-3 h-[30px] w-[200px] "
+          onChange={(e) => setLowPrice(parseFloat(e.target.value))}
+        />
+        <input
+          type="text"
+          placeholder="Max Price"
+          value={highPrice}
+          className="border-2 border-[#AA8453] rounded-md indent-3 h-[30px] w-[200px] ml-10"
+          onChange={(e) => setHighPrice(parseFloat(e.target.value))}
+        />
       </div>
+
       {loading ? (
         <span className="loading loading-infinity loading-lg"></span>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center">
-          {rooms.map((room) => (
+          {filterRooms.map((room) => (
             <RoomsCard key={room._id} room={room}></RoomsCard>
           ))}
         </div>
