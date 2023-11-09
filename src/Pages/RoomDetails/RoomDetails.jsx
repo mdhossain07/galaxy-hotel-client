@@ -14,6 +14,7 @@ const RoomDetails = () => {
   const [number, setNumber] = useState("");
   const { _id, img, name, offers, available, price, description, size } =
     loadedRoom;
+  console.log(loadedRoom);
 
   const { user } = useAuth();
 
@@ -30,7 +31,7 @@ const RoomDetails = () => {
     const checkOut = form.checkOut.value;
 
     const booking = {
-      // roomId: _id,
+      roomId: _id,
       img,
       name,
       available,
