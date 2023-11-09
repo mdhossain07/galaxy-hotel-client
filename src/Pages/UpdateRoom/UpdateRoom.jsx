@@ -4,8 +4,9 @@ import Swal from "sweetalert2";
 const UpdateRoom = () => {
   const navigate = useNavigate();
   const loadedRoom = useLoaderData();
-  const { _id, img, name, available, price, description, checkIn, checkOut } =
-    loadedRoom;
+  const { _id, img, name, checkIn, checkOut } = loadedRoom;
+
+  console.log(loadedRoom);
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -20,7 +21,7 @@ const UpdateRoom = () => {
 
     console.log(updatedBooking);
 
-    fetch(`https://galaxy-hotel-server.vercel.app/booking/${_id}`, {
+    fetch(`http://localhost:5001/booking/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -39,14 +40,11 @@ const UpdateRoom = () => {
 
   return (
     <div className="flex flex-col md:flex-row justify-around">
-      <div>
-        <img src={img} alt="" />
-        <h2>Package Name: {name}</h2>
-        <p>Rooms Available: {available}</p>
-        <p>Price: {price}</p>
-        <p>{description}</p>
+      <div className="md:w-1/2 mt-10">
+        <img className="w-full rounded-lg mb-10 " src={img} alt="" />
+        <h2 className="text-3xl font-semibold mb-5">Package Name: {name}</h2>
       </div>
-      <div className="hero min-h-screen">
+      <div className="hero min-h-screen -mt-36">
         <div className="hero-content flex-col">
           <div className="text-center">
             <h1 className="text-5xl font-bold">Update Booking</h1>

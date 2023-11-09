@@ -31,7 +31,7 @@ const routes = createBrowserRouter([
         path: "/room/:id",
         element: <RoomDetails />,
         loader: ({ params }) =>
-          fetch(`https://galaxy-hotel-server.vercel.app/rooms/${params.id}`),
+          fetch(`http://localhost:5001/rooms/${params.id}`),
       },
       {
         path: "/my-rooms",
@@ -45,7 +45,7 @@ const routes = createBrowserRouter([
         path: "/update-room/:id",
         element: <UpdateRoom />,
         loader: ({ params }) =>
-          fetch(`https://galaxy-hotel-server.vercel.app/booking/${params.id}`),
+          fetch(`http://localhost:5001/booking/${params.id}`),
       },
       {
         path: "/login",

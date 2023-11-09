@@ -26,7 +26,7 @@ const Login = () => {
         // get access token
         axios
           .post(
-            "https://galaxy-hotel-server.vercel.app/jwt",
+            "http://localhost:5001/jwt",
             { email: res.user.email },
             // user,
             { withCredentials: true }
@@ -47,6 +47,19 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((res) => {
+        axios
+          .post(
+            "http://localhost:5001/jwt",
+            { email: res.user.email },
+            // user,
+            { withCredentials: true }
+          )
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.success) {
+              navigate(location?.state ? location?.state : "/");
+            }
+          });
         Swal.fire("Success!", "Logged in successfully!", "success");
         console.log(res.user);
       })

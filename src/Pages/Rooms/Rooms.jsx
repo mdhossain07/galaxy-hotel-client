@@ -12,8 +12,8 @@ const Rooms = () => {
   const [isSorted, setIsSorted] = useState(1);
 
   useEffect(() => {
-    axios(`https://galaxy-hotel-server.vercel.app/rooms?sort=${isSorted}`).then(
-      (data) => setRooms(data.data)
+    axios(`http://localhost:5001/rooms?sort=${isSorted}`).then((data) =>
+      setRooms(data.data)
     );
   }, [isSorted]);
 

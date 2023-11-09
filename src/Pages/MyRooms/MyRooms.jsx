@@ -11,7 +11,7 @@ const MyRooms = () => {
   const { user, loading } = useAuth();
   const [myRooms, setMyRooms] = useState([]);
 
-  const url = `https://galaxy-hotel-server.vercel.app/booking?email=${user?.email}`;
+  const url = `http://localhost:5001/booking?email=${user?.email}`;
 
   useEffect(() => {
     axios
@@ -33,6 +33,19 @@ const MyRooms = () => {
     // console.log(checkCancel);
 
     if (checkCancel) {
+      // fetch(`http://localhost:5001/booking/${id}`, {
+      //   method: "DELETE",
+      // })
+      //   .then((res) => res.json())
+      //   .then((data) => {
+      //     console.log(data);
+      //     if (data.deletedCount > 0) {
+      //       Swal.fire("Success!", "Booking Cancellation Done", "success");
+      //       const remaining = myRooms.filter((room) => room._id !== id);
+      //       setMyRooms(remaining);
+      //     }
+      //   });
+
       Swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -43,7 +56,7 @@ const MyRooms = () => {
         confirmButtonText: "Yes, delete it!",
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`https://galaxy-hotel-server.vercel.app/booking/${id}`, {
+          fetch(`http://localhost:5001/booking/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())
@@ -59,7 +72,7 @@ const MyRooms = () => {
         }
       });
     } else {
-      Swal.fire("Error!", "Booking cancellation time expired", "error");
+      Swal.fire("Error!", "Booking Cancellation Period Expired", "error");
     }
   };
 
