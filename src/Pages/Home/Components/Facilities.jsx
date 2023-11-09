@@ -27,7 +27,7 @@ const FacilityCard = ({ facility }) => {
   const { service_name, service_description } = facility;
   return (
     <div>
-      <div className="card mt-5 w-full border border-[#DBCBB7] h-[200px]">
+      <div className="card mt-5 w-full border border-[#DBCBB7] h-[200px] md:h-[400px] lg:h-[200px]">
         <div className="card-body items-center text-center">
           <h2 className="card-title">{service_name}</h2>
           <p className="text-[#858585]">{service_description}</p>

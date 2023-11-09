@@ -6,6 +6,7 @@ import Testimonials from "./Components/Testimonials";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import Map from "./Components/Map";
 
 const Home = () => {
   useEffect(() => {
@@ -20,6 +21,7 @@ const Home = () => {
       <Facilities />
       <Rooms />
       <Testimonials />
+      <Map />
     </div>
   );
 };

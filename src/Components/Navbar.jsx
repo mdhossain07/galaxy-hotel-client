@@ -91,7 +91,9 @@ const Navbar = () => {
                 </svg>
               </label>
             </div>
-            <img className="w-[110px]" src={logo} alt="" />
+            <Link to="/">
+              <img className="w-[110px]" src={logo} alt="" />
+            </Link>
             <div className="flex-none hidden lg:block">
               <ul className="flex gap-5">
                 {/* Navbar menu content here */}

@@ -15,7 +15,7 @@ const Testimonials = () => {
         spaceBetween={50}
         slidesPerView={1}
         pagination={{ clickable: true }}
-        className="w-[500px] lg:w-[800px] mt-16"
+        className="w-[400px] lg:w-[800px] mx-auto mt-16"
       >
         <SwiperSlide>
           <figure className="max-w-screen-md mx-auto text-center -mt-2">
